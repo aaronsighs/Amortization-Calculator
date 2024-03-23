@@ -72,6 +72,22 @@ td{
     box-shadow: 2px 1px  rgba(153, 153, 153, 0.451);
     
 }
+
+.button-styling{
+    border:0px;
+    box-shadow: 2px 2px rgba(66, 99, 219, 0.152);
+    border-radius: 3px;
+    background-color: rgb(189, 194, 194);
+    color:rgba(54, 54, 55, 0.93);
+}
+
+.button-styling:hover{
+    box-shadow: 4px 4px rgba(66, 176, 219, 0.058);
+    background-color: rgb(205, 207, 207);
+    color:rgba(54, 54, 55, 0.93);
+}
+
+
 .input-table tr td input[type=button]{
     border:0px;
     padding:10px;
@@ -138,7 +154,22 @@ td{
     padding: 20px;
     /* border: 2px solid red; */
     min-width: 260px;
+    
 }  
+.table-header *{
+    float:left;
+    margin-right:20px;
+    user-select: none;
+    margin-top:0px;
+}
+.table-header{
+    user-select: none;
+}
+.table-header input[type=button]{
+    padding:6px;
+    vertical-align: middle;
+
+}
 
 
   
