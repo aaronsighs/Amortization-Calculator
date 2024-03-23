@@ -8,30 +8,40 @@
     padding:20px;
     margin:0px;
     user-select: none;
+    width:100%;
 }
-body {
+body,head,html {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
   }
 
   
 .input-div{
     border:2px solid rgba(0, 0, 0, 0.476);
     border-radius: 14px;
-    margin: 10px;
-    width:500px;
+    margin: 0px;
+    width:150px;
     height:250px;
     position: relative;
+    max-width: 200px;
 }
 .form-input{
     padding:10px;
-
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
     user-select: none;
+    position: absolute;
 }
 .input-table{
-    width:max-content;
+    /* border:1px solid red; */
     table-layout: auto;
-    width:80%;
+    width:40px;
     text-align:center;
     left:0;
     top:0;
@@ -52,7 +62,9 @@ td{
     border-radius: 4px;
     margin:2px;
     padding:3px;
+    width:120px;
 }
+
 .input-table tr td input[type=number]:focus{
     outline:none;
     border:2px solid rgba(28, 149, 230, 0.83);
@@ -77,21 +89,25 @@ td{
     background-color: rgb(205, 207, 207);
     color:rgba(54, 54, 55, 0.93);
 }
-.ir{
+
+.ir,.ir2{
     position: relative;
-}
-.ir2,.ir2{
-    position: relative;
+    left:0px;
 }
 .ir div{
     position: absolute;
     top:17%;
-    right:20%;
+    right:0%;
     font-size: .8rem;
     color:grey;
+    width:10px;
 }
 #ploan{
     padding-left: 12px;
+}
+#loanyears,#loanmonths{
+    width:68px;
+    margin-left:-60px;
 }
 .ir2 div{
     position: absolute;
@@ -111,6 +127,18 @@ td{
     color:red;
     
 }
+.floating-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.floating-container div {
+    width:40%;
+    float: left;
+    padding: 20px;
+    /* border: 2px solid red; */
+    min-width: 260px;
+}  
 
 
   
