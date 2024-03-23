@@ -20,24 +20,24 @@
                     <label for="fname">Principle Loan:</label> 
                 </td>
                 <td>
-                    <input type="text" id="ploan" name="ploan"><br><br>
+                    <input type="number" id="ploan" name="ploan" min="0" oninput="this.value =  this.value=='0'  ? 0:Math.abs(this.value) || ''  "><br><br>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="loantermy">Term of Loan:</label>
+                    <label for="loanterm">Term of Loan:</label>
                 </td>
                 <td>
-                    <input type="text" id="lname" name="lname"><br><br>
+                    <input type="number" id="loanyears" name="loanyears" placeholder="Year(s)" min="0" oninput="this.value =  this.value=='0'  ? 0:Math.abs(this.value) || ''  "><br><br>
                 </td>
-                <td><input type="text" id="lname" name="lname"><br><br></td>
+                <td><input type="number" id="loanmonths" name="loanmonths" placeholder="Month(s)" min="0" oninput="this.value =  this.value=='0'  ? 0:Math.abs(this.value) || ''  "><br><br></td>
             </tr>
             <tr>
                 <td>
-                    <label for="fname">Interest Rate:</label> 
+                    <label for="interestRate">Interest Rate:</label> 
                 </td>
                 <td>
-                    <input type="text" id="ploan" name="ploan"><br><br>
+                    <input type="number" id="interestRate" name="interestRate" placeholder="%" min="0" oninput="this.value =  this.value=='0'  ? 0:Math.abs(this.value) || ''  "><br><br>
                 </td>
             </tr>
             <tr>
