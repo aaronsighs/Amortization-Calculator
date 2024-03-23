@@ -77,7 +77,40 @@ td{
     background-color: rgb(205, 207, 207);
     color:rgba(54, 54, 55, 0.93);
 }
+.ir{
+    position: relative;
+}
+.ir2,.ir2{
+    position: relative;
+}
+.ir div{
+    position: absolute;
+    top:17%;
+    right:20%;
+    font-size: .8rem;
+    color:grey;
+}
+#ploan{
+    padding-left: 12px;
+}
+.ir2 div{
+    position: absolute;
+    top:17.5%;
+    right:92.5%;
+    font-size: .85rem;
+    color:grey;
+}
 
+.hidden{
+    visibility: hidden;
+}
+
+
+.input-table tr td input[type=number]::after{
+    content:"apple";
+    color:red;
+    
+}
 
 
   

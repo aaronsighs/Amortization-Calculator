@@ -19,25 +19,35 @@
                 <td>
                     <label for="fname">Principle Loan:</label> 
                 </td>
-                <td>
-                    <input type="number" id="ploan" name="ploan" min="0" oninput="this.value =  this.value=='0'  ? 0:Math.abs(this.value) || ''  "><br><br>
+                <td class="ir2">
+                    <input type="number" id="ploan" name="ploan" min="0" placeholder="$"  >
+                    <br><br>
+                    <div class="hidden">$</div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="loanterm">Term of Loan:</label>
                 </td>
-                <td>
+                <td class="ir">
                     <input type="number" id="loanyears" name="loanyears" placeholder="Year(s)" min="0" oninput="this.value =  this.value=='0'  ? 0:Math.abs(this.value) || ''  "><br><br>
+                    <div class="hidden">Y</div>
                 </td>
-                <td><input type="number" id="loanmonths" name="loanmonths" placeholder="Month(s)" min="0" oninput="this.value =  this.value=='0'  ? 0:Math.abs(this.value) || ''  "><br><br></td>
+                <td class="ir">
+                    <input type="number" id="loanmonths" name="loanmonths" placeholder="Month(s)" min="0" oninput="this.value =  this.value=='0'  ? 0:Math.abs(this.value) || ''  "><br><br>
+                    <div class="hidden">M</div>
+                </td>
+                
             </tr>
             <tr>
                 <td>
                     <label for="interestRate">Interest Rate:</label> 
                 </td>
-                <td>
-                    <input type="number" id="interestRate" name="interestRate" placeholder="%" min="0" oninput="this.value =  this.value=='0'  ? 0:Math.abs(this.value) || ''  "><br><br>
+                <td class="ir">
+                    
+                    <input type="number" id="interestRate" name="interestRate" placeholder="%" min="0" >
+                    <br><br>
+                    <div class="hidden">%</div>
                 </td>
             </tr>
             <tr>
