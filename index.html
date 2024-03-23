@@ -60,22 +60,70 @@
     </form>
     </div>
 
-    <div class="output-table-section">
-        <div class="table-header">
+    <div class="stats-section">
+        <div class="stats-container">
+            <h2 class="stats-title">
+                Stats
+            </h2>
+           
 
-        <h3 class="output-table-title">
-            By Year
-        </h3>
-        <input type="button" value="Months" class="button-styling">
+        </div>
+        <div>
+            <p>Monthly Payment:</p>
+
+            <h3>
+                Total:
+            </h3>
+            
+            <p>Payments:</p>
+            <p>Principle:</p>
+            <p>Interest:</p>
+        </div>
+
     </div>
-
-        <Table class="output-table">
-
-        </Table>
-
-    </div>
-
 </div>
+    <div class="table-section">
+        <div class="table-section-container tsc-one">
+            <div class="table-header">
+                <h3>By Years</h3>
+                <input type="button" value="Months" class="button-styling" id="monthToggleButton">
+            </div>
+            <Table class="output-table" id="output-table-years">
+                <tr>
+                    <th>Year</th>
+                    <th>Interest</th>
+                    <th>Principle</th>
+                    <th>Ending Balance</th>
+                </tr>
+    
+            </Table>
+    
+
+
+        </div>
+        <div class="table-section-container tsc-two hidden">
+            <div class="table-header">
+                <h3>By Months</h3>
+                <input type="button" value="Years" class="button-styling" id="yearToggleButton">
+            </div>
+            <Table class="output-table" id="output-table-months">
+                <tr>
+                    <th>Month</th>
+                    <th>Interest</th>
+                    <th>Principle</th>
+                    <th>Ending Balance</th>
+                </tr>
+    
+            </Table>
+    
+            
+
+        </div>
+    </div>
+    
+ 
+
+
 
 </body>
 <root>
