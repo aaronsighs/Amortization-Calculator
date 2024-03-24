@@ -19,7 +19,7 @@
         <Table class="input-table">
             <tr>
                 <td>
-                    <label for="fname">Principle Loan:</label> 
+                    <label for="fname">Principal Loan:</label> 
                 </td>
                 <td class="ir2">
                     <input type="number" id="ploan" name="ploan" min="0" placeholder="$"  >
@@ -54,7 +54,7 @@
             </tr>
             <tr>
             <td></td>
-            <td><input type="button" value="Calculate"></td>
+            <td><input type="button" value="Calculate" id="calculate-button"></td>
             </tr>
         </Table>
     </form>
@@ -69,7 +69,8 @@
 
         </div>
         <div>
-            <p>Monthly Payment:</p>
+            
+            <p id="monthly-payment">Monthly Payment:</p>
 
             <h3>
                 Total:
