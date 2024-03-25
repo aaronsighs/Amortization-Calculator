@@ -196,9 +196,20 @@ td{
 .stats-title{
     margin:0px;
 }
+div.piechart {
+    width: 200px;
+    height: 200px;
+    scale: .22;
+    border-radius: 50%;
+    background-image: conic-gradient(
+        rgba(26, 25, 25, 0.621) 180deg,
+        rgba(24, 203, 134, 0.962) 0);
+    position: absolute;
+    TOP:-95PX;
+    RIGHT:-120px
+}
 
-
-.output-table,.output-table tr, .output-table tr td,.output-table tr th {
+.output-table tr, .output-table tr td,.output-table tr th {
     border:1px solid black;
     padding:4px;
     margin:1px;
@@ -208,9 +219,8 @@ td{
 }
 .table-section{
     min-height:400px;
-    border: 1px solid black;
     max-width:1200px;
-    flex-shrink : 1 0 55%;
+    flex-shrink :11 0 55%;
     margin:10px;
     margin-left:30px;
     position: relative;
