@@ -35,7 +35,7 @@ function calculateMonthlyPayment(principal,interestRate,term_months){
 function calculate(){
     if (checkInput().length!=0){return 0}
     monthlyPayment = calculateMonthlyPayment(getLoanPrincipal(),getInterestRate(),getLoanTerm())
-    document.getElementById("monthly-payment").innerText = "Monthly Payment: $" + monthlyPayment.toFixed(2)
+    document.getElementById("monthly-payment-value").innerText = "$" + monthlyPayment.toFixed(2)
     clearMonthTable()
     addAllRowsToMonthTable(getLoanPrincipal(),getInterestRate(),getLoanTerm())
 }
@@ -54,7 +54,9 @@ function addAllRowsToMonthTable(principal,interestRate,term_months){
     
     balance = principal
     count = 1
-    while(balance>0){
+    totalPaid = 0
+
+    while(balance>0){ 
 
         principalInterest = (monthlyInterestRate * balance)
         principalPaid = monthlyPayment - principalInterest
@@ -63,15 +65,28 @@ function addAllRowsToMonthTable(principal,interestRate,term_months){
         if (count % 12 == 0 && balance>0){
             addRowToMonthTable(["End of Year "+count/12],rowClass="",itemClass="apple",span=1)
         }
+        totalPaid += monthlyPayment
+
         count+=1
         
         
 
         
     }
-
+    updateStats(totalPaid,principal)
 
 }
+
+function updateStats(totalPaid,principal){
+    document.getElementById("total-payment-value").innerText = totalPaid.toFixed(2)
+    document.getElementById("total-interest-value").innerText = (totalPaid - principal).toFixed(2)
+    document.getElementById("total-payments-value").innerText = getLoanTerm()
+    console.log(100-(totalPaid - principal)/totalPaid*100)
+    UpdatePieChart((totalPaid - principal)/totalPaid*100)
+}
+
+
+
 
 
 function addRowToMonthTable(data,rowClass="",itemClass="",span=0){
@@ -93,8 +108,8 @@ function addRowToMonthTable(data,rowClass="",itemClass="",span=0){
 
 function UpdatePieChart(percentInterest){
     piechart = document.getElementsByClassName("piechart")[0]
-    background ="conic-gradient(rgba(26, 25, 25, 0.621)"+percentInterest/100*360+"deg,rgba(24, 203, 134, 0.962) 0)a"
-    piechart.style.backgroundImage = background =background
+    background ="conic-gradient(rgba(26, 25, 25, 0.621)"+percentInterest/100*360+"deg,rgba(24, 203, 134, 0.962) 0)"
+    piechart.style.backgroundImage = background
     piechart.classList.remove("hidden")
 }
 

@@ -14,7 +14,7 @@
       </div>
       <div class="floating-container">
 
-      <div class="input-div">
+      <div class="input-div section">
         <form action="js-action1" class="form-input">
         <Table class="input-table">
             <tr>
@@ -60,7 +60,7 @@
     </form>
     </div>
 
-    <div class="stats-section">
+    <div class="stats-section section">
         <div class="piechart hidden"></div>
         <div class="stats-container">
             <h2 class="stats-title">
@@ -68,18 +68,25 @@
             </h2>
             
            
-
-        </div>
-        <div>
+            <div class="stat-output">
             <p id="monthly-payment">Monthly Payment:</p>
+            <b id="monthly-payment-value"></b>
+            </div>
+            <div class="stat-output">
+            <p id="total-payment">Total Payment:</p>
+            <b id="total-payment-value"></b>
+            </div>
 
-            <h3>
-                Total:
-            </h3>
-            
-            <p>Payments:</p>
-            <p>Principle:</p>
-            <p>Interest:</p>
+            <hr style="width:60%; left:20%; margin-top:24px">
+            <br>
+            <div class="stat-output">
+                <p id="total-interest">Interest:</p>
+                <b id="total-interest-value"></b>
+                </div>
+                <div class="stat-output">
+                    <p id="total-payments">Payments:</p>
+                    <b id="total-payments-value"></b>
+                    </div>
         </div>
 
     </div>
