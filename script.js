@@ -37,15 +37,26 @@ function calculate(){
     monthlyPayment = calculateMonthlyPayment(getLoanPrincipal(),getInterestRate(),getLoanTerm())
     document.getElementById("monthly-payment-value").innerText = "$" + monthlyPayment.toFixed(2)
     clearMonthTable()
-    addAllRowsToMonthTable(getLoanPrincipal(),getInterestRate(),getLoanTerm())
+    clearYearTable()
+    addAllRowsToAllTables(getLoanPrincipal(),getInterestRate(),getLoanTerm())
 }
 
 function clearMonthTable(){
     monthTable = document.getElementById("output-table-months")
-    while (monthTable.childElementCount!=1) {
-        monthTable.removeChild(monthTable.lastChild);
+    clearTable(monthTable)
+}
+
+function clearTable(table){
+    while (table.childElementCount!=1) {
+        table.removeChild(table.lastChild);
     }
 }
+
+function clearYearTable(){
+    yearTable = document.getElementById("output-table-years")
+    clearTable(yearTable)
+}
+
 
 function addAllRowsToMonthTable(principal,interestRate,term_months){
 
@@ -77,6 +88,49 @@ function addAllRowsToMonthTable(principal,interestRate,term_months){
 
 }
 
+
+function addAllRowsToAllTables(principal,interestRate,term_months){
+
+    monthlyInterestRate = interestRate / 100  / 12
+    monthlyPayment = calculateMonthlyPayment(getLoanPrincipal(),getInterestRate(),getLoanTerm())
+    
+    balance = principal
+    count = 1
+    count2 = 1
+    totalPaid = 0
+    runningInterest = 0 
+    runningPrincipal = 0
+
+    while(balance>0){ 
+        principalInterest = (monthlyInterestRate * balance)
+        principalPaid = monthlyPayment - principalInterest
+        balance -= principalPaid
+        runningPrincipal += principalPaid
+        runningInterest +=  principalInterest
+        addRowToMonthTable([count,principalInterest.toFixed(2),principalPaid.toFixed(2),balance.toFixed(2)])
+        if (count % 12 == 0 && balance>0){
+            addRowToMonthTable(["End of Year "+count/12],rowClass="",itemClass="apple",span=1)
+            
+        }
+        console.log("here")
+        if ( count % 12 == 0 || balance<=0){
+            addRowToYearTable([count2,runningInterest.toFixed(2),runningPrincipal.toFixed(2),balance.toFixed(2)])
+            count2+=1
+            runningInterest = 0
+            runningPrincipal = 0
+        }
+        totalPaid += monthlyPayment
+
+        count+=1
+        
+        
+
+        
+    }
+    updateStats(totalPaid,principal)
+
+}
+
 function updateStats(totalPaid,principal){
     document.getElementById("total-payment-value").innerText = totalPaid.toFixed(2)
     document.getElementById("total-interest-value").innerText = (totalPaid - principal).toFixed(2)
@@ -91,6 +145,16 @@ function updateStats(totalPaid,principal){
 
 function addRowToMonthTable(data,rowClass="",itemClass="",span=0){
     monthTable = document.getElementById("output-table-months")
+    addRowToTable(data,monthTable,rowClass,itemClass,span)
+    
+}
+function addRowToYearTable(data,rowClass="",itemClass="",span=0){
+    yearTable = document.getElementById("output-table-years")
+    addRowToTable(data,yearTable,rowClass,itemClass,span)
+    
+}
+
+function addRowToTable(data,table,rowClass="",itemClass="",span=0){
 
     tableRow = document.createElement("tr")
     rowClass ? tableRow.classList.add(rowClass):""
@@ -103,7 +167,7 @@ function addRowToMonthTable(data,rowClass="",itemClass="",span=0){
 
         tableRow.appendChild(tableItem)
     })
-    monthTable.appendChild(tableRow)
+    table.appendChild(tableRow)
 }
 
 function UpdatePieChart(percentInterest){
