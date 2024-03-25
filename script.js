@@ -168,6 +168,11 @@ function addRowToTable(data,table,rowClass="",itemClass="",span=0){
         tableRow.appendChild(tableItem)
     })
     table.appendChild(tableRow)
+    if (table.childElementCount%2==0){
+        tableRow.classList.add("odd")
+    }else{
+        tableRow.classList.add("even")
+    }
 }
 
 function UpdatePieChart(percentInterest){
