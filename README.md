@@ -8,8 +8,8 @@ Translate the excel into a website to help calculate monthly payment for student
 
 
 ### Website Preview
-[demo](https://htmlpreview.github.io/?https://github.com/aaronsighs/Amortization-Calculator)
-[![preview2](Media/WebPreview.gif)](https://htmlpreview.github.io/?https://github.com/aaronsighs/Amortization-Calculator)
+[demo](https://aaronsighs.github.io/Amortization-Calculator/)
+[![preview2](Media/WebPreview.gif)](https://aaronsighs.github.io/Amortization-Calculator/)
 
 
 ### Excel File Preview 
