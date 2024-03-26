@@ -8,7 +8,7 @@ document.getElementById("yearToggleButton").onclick = toggleTableView
 
 document.getElementById("calculate-button").onclick = calculate
 
-
+calculate()
 
 function toggleTableView(){
     monthTableView = document.getElementsByClassName("tsc-two")[0]
@@ -113,7 +113,7 @@ function addAllRowsToAllTables(principal,interestRate,term_months){
             
         }
         console.log("here")
-        if ( count % 12 == 0 || balance<=0){
+        if ( count % 12 == 0 || balance==0){
             addRowToYearTable([count2,runningInterest.toFixed(2),runningPrincipal.toFixed(2),balance.toFixed(2)])
             count2+=1
             runningInterest = 0
@@ -127,6 +127,8 @@ function addAllRowsToAllTables(principal,interestRate,term_months){
 
         
     }
+
+
     updateStats(totalPaid,principal)
 
 }

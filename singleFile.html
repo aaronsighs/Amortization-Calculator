@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amortization Calculator</title>
+    <style>
+        
+
+.header{
+    background:rgba(0, 0, 0, 0.599);
+    color:white;
+    text-align: center;
+    text-align: left;
+    padding:20px;
+    margin:0px;
+    user-select: none;
+    width:100%;
+}
+body,head,html {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    margin: 0;
+  }
+
+  
+.input-div{
+    border:2px solid rgba(0, 0, 0, 0.476);
+    border-radius: 14px;
+    margin: 0px;
+    width:150px;
+    height:250px;
+    position: relative;
+    max-width: 200px;
+}
+.form-input{
+    padding:10px;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    user-select: none;
+    position: absolute;
+}
+.input-table{
+    table-layout: auto;
+    width:40px;
+    text-align:center;
+    left:0;
+    top:0;
+
+
+
+}
+
+td{
+
+    padding-right:10px;
+
+}
+.input-table tr td input[type=number]{
+    border:2px solid rgba(0, 0, 0, 0.476);
+    margin-top: 15px;
+    margin-left: 5px;
+    border-radius: 4px;
+    margin:2px;
+    padding:3px;
+    width:120px;
+}
+
+.input-table tr td input[type=number]:focus{
+    outline:none;
+    border:2px solid rgba(28, 149, 230, 0.83);
+    border-radius: 4px;
+    box-shadow: 2px 1px  rgba(153, 153, 153, 0.451);
+    
+}
+
+.button-styling{
+    border:0px;
+    box-shadow: 2px 2px rgba(66, 99, 219, 0.152);
+    border-radius: 3px;
+    background-color: rgb(189, 194, 194);
+    color:rgba(54, 54, 55, 0.93);
+}
+
+.button-styling:hover{
+    box-shadow: 4px 4px rgba(66, 176, 219, 0.058);
+    background-color: rgb(205, 207, 207);
+    color:rgba(54, 54, 55, 0.93);
+}
+
+
+.input-table tr td input[type=button]{
+    border:0px;
+    padding:10px;
+    bottom:30px;
+    right:35%;
+    position: absolute;
+    box-shadow: 2px 2px rgba(66, 99, 219, 0.152);
+    border-radius: 3px;
+    background-color: rgb(189, 194, 194);
+    color:rgba(54, 54, 55, 0.93);
+    
+}
+.input-table tr td input[type=button]:hover{
+    box-shadow: 4px 4px rgba(66, 176, 219, 0.058);
+    background-color: rgb(205, 207, 207);
+    color:rgba(54, 54, 55, 0.93);
+}
+
+.ir,.ir2{
+    position: relative;
+    left:0px;
+}
+.ir div{
+    position: absolute;
+    top:17%;
+    right:0%;
+    font-size: .8rem;
+    color:grey;
+    width:10px;
+}
+#ploan{
+    padding-left: 12px;
+}
+#loanyears,#loanmonths{
+    width:68px;
+    margin-left:-60px;
+}
+.ir2 div{
+    position: absolute;
+    top:17.5%;
+    right:92.5%;
+    font-size: .85rem;
+    color:grey;
+}
+
+.hidden{
+    visibility: hidden;
+    width:0px;
+    height:0px;
+    margin:0px;
+    padding:0px;
+    display: block;
+}
+.table-section-container{
+    
+    margin:0px;
+    padding:0px;
+    width:100%;
+    height:100%;
+    display: block;
+}
+
+
+
+.input-table tr td input[type=number]::after{
+    content:"apple";
+    color:red;
+    
+}
+.floating-container {
+    border: 3px solid #fff;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.floating-container .section {
+    width:50%;
+    flex : 1 0 55%;
+
+    
+    padding: 20px;
+    min-width: 260px;
+    margin:10px;
+    
+}   
+
+
+
+.stats-section{
+    border:2px solid rgba(0, 0, 0, 0.476);
+    border-radius: 14px;
+    width:150px;
+    height:250px;
+    position: relative;
+    max-width: 200px;
+}
+.stats-container{
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+}
+.stats-title{
+    margin:2px;
+}
+.stat-output *{
+    display:inline-block;
+    margin:0px;
+    margin-top:10px;
+    padding:0px;
+    text-align: left;
+}
+div.piechart {
+    width: 200px;
+    height: 200px;
+    scale: .22;
+    border-radius: 50%;
+    background-image: conic-gradient(
+        rgba(56, 56, 56, 0.621) 180deg,
+        rgba(24, 203, 134, 0.962) 0);
+    position: absolute;
+    TOP:-75PX;
+    RIGHT:-75px
+}
+th{
+    background-color: rgba(83, 82, 82, 0.859);
+    color:rgba(255, 255, 255, 0.972);
+    display: table-cell;
+    text-align: -internal-center;
+    vertical-align: inherit;
+}
+tr.even *{
+    background-color: rgba(242, 239, 239, 0.937);
+}
+
+.output-table tr{
+    border:2px solid black;
+    padding:0px;
+    margin:0px;
+    padding:10px;
+}
+.output-table tr{
+    background-color: white;
+}
+.output-table tr td,.output-table tr th{
+    border:1px solid rgba(77, 77, 77, 0.275);
+    padding: 5px 5px 5px 10px;
+}
+.output-table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: right;
+    margin-left: 0px;
+    border-color:red;
+    margin-bottom: 25px;
+}
+.apple{
+    text-align: center;
+}
+
+.table-section{
+    max-width:1200px;
+    flex-grow :0 0 55%;
+    margin:10px;
+    margin-left:30px;
+    position: relative;
+}
+.table-section-container{
+    position: absolute;
+    top:0;
+    left:0;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+.table-header h3{
+    margin: 10px;
+    display: inline-block;
+    margin: 10px 30px 10px 10px;
+    
+}
+
+.table-header{
+    user-select: none;
+}
+.table-header input[type=button]{
+    padding:6px;
+    height:26px;
+
+}
+
+
+
+  
+
+
+
+
+
+        </style>
+</head>
+<body>
+
+    <div class="header" id="myHeader">
+        <h2>Amortization Calculator</h2>
+      </div>
+      <div class="floating-container">
+
+      <div class="input-div section">
+        <form action="js-action1" class="form-input">
+        <Table class="input-table">
+            <tr>
+                <td>
+                    <label for="fname">Principal Loan:</label> 
+                </td>
+                <td class="ir2">
+                    <input type="number" id="ploan" name="ploan" min="0" placeholder="$" value="5000"  >
+                    <br><br>
+                    <div class="hidden">$</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="loanterm">Term of Loan:</label>
+                </td>
+                <td class="ir">
+                    <input type="number" id="loanyears" name="loanyears" placeholder="Year(s)"  value=2 min="0" oninput="this.value =  this.value=='0'  ? 0:Math.abs(this.value) || ''  "><br><br>
+                    <div class="hidden">Y</div>
+                </td>
+                <td class="ir">
+                    <input type="number" id="loanmonths" name="loanmonths" placeholder="Month(s)" min="0" oninput="this.value =  this.value=='0'  ? 0:Math.abs(this.value) || ''  "><br><br>
+                    <div class="hidden">M</div>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <label for="interestRate">Interest Rate:</label> 
+                </td>
+                <td class="ir">
+                    
+                    <input type="number" id="interestRate" name="interestRate" placeholder="%"  value=10 min="0" >
+                    <br><br>
+                    <div class="hidden">%</div>
+                </td>
+            </tr>
+            <tr>
+            <td></td>
+            <td><input type="button" value="Calculate" id="calculate-button"></td>
+            </tr>
+        </Table>
+    </form>
+    </div>
+
+    <div class="stats-section section">
+        <div class="piechart hidden"></div>
+        <div class="stats-container">
+            <h2 class="stats-title">
+                Stats
+            </h2>
+            
+           
+            <div class="stat-output">
+            <p id="monthly-payment">Monthly Payment:</p>
+            <b id="monthly-payment-value"></b>
+            </div>
+            <div class="stat-output">
+            <p id="total-payment">Total Payment:</p>
+            <b id="total-payment-value"></b>
+            </div>
+
+            <hr style="width:60%; left:20%; margin-top:24px">
+            <br>
+            <div class="stat-output">
+                <p id="total-interest">Interest:</p>
+                <b id="total-interest-value"></b>
+                </div>
+                <div class="stat-output">
+                    <p id="total-payments">Payments:</p>
+                    <b id="total-payments-value"></b>
+                    </div>
+        </div>
+
+    </div>
+</div>
+    <div class="table-section">
+        <div class="table-section-container tsc-one">
+            <div class="table-header">
+                <h3>By Years</h3>
+                <input type="button" value="Months" class="button-styling" id="monthToggleButton">
+            </div>
+            <Table class="output-table" id="output-table-years">
+                <tr>
+                    <th>Year</th>
+                    <th>Interest</th>
+                    <th>Principle</th>
+                    <th>Ending Balance</th>
+                </tr>
+    
+            </Table>
+    
+
+
+        </div>
+        <div class="table-section-container tsc-two hidden">
+            <div class="table-header">
+                <h3>By Months</h3>
+                <input type="button" value="Years" class="button-styling" id="yearToggleButton">
+            </div>
+            <Table class="output-table" id="output-table-months">
+                <tr>
+                    <th>Month</th>
+                    <th>Interest</th>
+                    <th>Principle</th>
+                    <th>Ending Balance</th>
+                </tr>
+    
+            </Table>
+    
+            
+
+        </div>
+    </div>
+    
+ 
+
+
+
+</body>
+
+<root>
+        <script>
+            
+
+            termToggleBtn = document.getElementById("btn-toggle-term-table")
+
+
+            document.getElementById("monthToggleButton").onclick = toggleTableView
+            document.getElementById("yearToggleButton").onclick = toggleTableView
+
+            document.getElementById("calculate-button").onclick = calculate
+
+            calculate()
+
+            function toggleTableView(){
+                monthTableView = document.getElementsByClassName("tsc-two")[0]
+                yearTableView = document.getElementsByClassName("tsc-one")[0]
+
+                if (monthTableView.classList.contains("hidden")){
+                    monthTableView.classList.remove("hidden")
+                    yearTableView.classList.add("hidden")
+                }else{
+                    yearTableView.classList.remove("hidden")
+                    monthTableView.classList.add("hidden")
+                }
+
+            }
+
+            function calculateMonthlyPayment(principal,interestRate,term_months){
+            
+                monthlyInterestRate = interestRate / 100  / 12
+                monthlyPayment = principal  * monthlyInterestRate * ( 1 + monthlyInterestRate ) ** term_months /  ((1 + monthlyInterestRate ) ** (term_months)-1)
+                return monthlyPayment
+            }
+
+
+            function calculate(){
+                if (checkInput().length!=0){return 0}
+                monthlyPayment = calculateMonthlyPayment(getLoanPrincipal(),getInterestRate(),getLoanTerm())
+                document.getElementById("monthly-payment-value").innerText = "$" + monthlyPayment.toFixed(2)
+                clearMonthTable()
+                clearYearTable()
+                addAllRowsToAllTables(getLoanPrincipal(),getInterestRate(),getLoanTerm())
+            }
+
+            function clearMonthTable(){
+                monthTable = document.getElementById("output-table-months")
+                clearTable(monthTable)
+            }
+
+            function clearTable(table){
+                while (table.childElementCount!=1) {
+                    table.removeChild(table.lastChild);
+                }
+            }
+
+            function clearYearTable(){
+                yearTable = document.getElementById("output-table-years")
+                clearTable(yearTable)
+            }
+
+
+            function addAllRowsToMonthTable(principal,interestRate,term_months){
+
+                monthlyInterestRate = interestRate / 100  / 12
+                monthlyPayment = calculateMonthlyPayment(getLoanPrincipal(),getInterestRate(),getLoanTerm())
+                
+                balance = principal
+                count = 1
+                totalPaid = 0
+
+                while(balance>0){ 
+
+                    principalInterest = (monthlyInterestRate * balance)
+                    principalPaid = monthlyPayment - principalInterest
+                    balance -= principalPaid
+                    addRowToMonthTable([count,principalInterest.toFixed(2),principalPaid.toFixed(2),balance.toFixed(2)])
+                    if (count % 12 == 0 && balance>0){
+                        addRowToMonthTable(["End of Year "+count/12],rowClass="",itemClass="apple",span=1)
+                    }
+                    totalPaid += monthlyPayment
+
+                    count+=1
+                    
+                    
+
+                    
+                }
+                updateStats(totalPaid,principal)
+
+            }
+
+
+            function addAllRowsToAllTables(principal,interestRate,term_months){
+
+                monthlyInterestRate = interestRate / 100  / 12
+                monthlyPayment = calculateMonthlyPayment(getLoanPrincipal(),getInterestRate(),getLoanTerm())
+                
+                balance = principal
+                count = 1
+                count2 = 1
+                totalPaid = 0
+                runningInterest = 0 
+                runningPrincipal = 0
+
+                while(balance>0){ 
+                    principalInterest = (monthlyInterestRate * balance)
+                    principalPaid = monthlyPayment - principalInterest
+                    balance -= principalPaid
+                    runningPrincipal += principalPaid
+                    runningInterest +=  principalInterest
+                    addRowToMonthTable([count,principalInterest.toFixed(2),principalPaid.toFixed(2),balance.toFixed(2)])
+                    if (count % 12 == 0 && balance>0){
+                        addRowToMonthTable(["End of Year "+count/12],rowClass="",itemClass="apple",span=1)
+                        
+                    }
+                    console.log("here")
+                    if ( count % 12 == 0 || balance==0){
+                        addRowToYearTable([count2,runningInterest.toFixed(2),runningPrincipal.toFixed(2),balance.toFixed(2)])
+                        count2+=1
+                        runningInterest = 0
+                        runningPrincipal = 0
+                    }
+                    totalPaid += monthlyPayment
+
+                    count+=1
+                    
+                    
+
+                    
+                }
+
+
+                updateStats(totalPaid,principal)
+
+            }
+
+            function updateStats(totalPaid,principal){
+                document.getElementById("total-payment-value").innerText = totalPaid.toFixed(2)
+                document.getElementById("total-interest-value").innerText = (totalPaid - principal).toFixed(2)
+                document.getElementById("total-payments-value").innerText = getLoanTerm()
+                console.log(100-(totalPaid - principal)/totalPaid*100)
+                UpdatePieChart((totalPaid - principal)/totalPaid*100)
+            }
+
+
+
+
+
+            function addRowToMonthTable(data,rowClass="",itemClass="",span=0){
+                monthTable = document.getElementById("output-table-months")
+                addRowToTable(data,monthTable,rowClass,itemClass,span)
+                
+            }
+            function addRowToYearTable(data,rowClass="",itemClass="",span=0){
+                yearTable = document.getElementById("output-table-years")
+                addRowToTable(data,yearTable,rowClass,itemClass,span)
+                
+            }
+
+            function addRowToTable(data,table,rowClass="",itemClass="",span=0){
+
+                tableRow = document.createElement("tr")
+                rowClass ? tableRow.classList.add(rowClass):""
+                data.forEach((element) => {
+                    tableItem = document.createElement("td")
+                    tableItem.innerText = element
+
+                    if (itemClass){tableItem.classList.add(itemClass)}
+                    if (span){tableItem.colSpan=10}
+
+                    tableRow.appendChild(tableItem)
+                })
+                table.appendChild(tableRow)
+                if (table.childElementCount%2==0){
+                    tableRow.classList.add("odd")
+                }else{
+                    tableRow.classList.add("even")
+                }
+            }
+
+            function UpdatePieChart(percentInterest){
+                piechart = document.getElementsByClassName("piechart")[0]
+                background ="conic-gradient(rgba(26, 25, 25, 0.621)"+percentInterest/100*360+"deg,rgba(24, 203, 134, 0.962) 0)"
+                piechart.style.backgroundImage = background
+                piechart.classList.remove("hidden")
+            }
+
+            function checkInput(){
+                checks = ""
+                if (getLoanPrincipal()==0){checks+="A"}
+                if (getInterestRate()==0){checks+="B"}
+                if (getLoanTerm()==0){checks+="C"}
+                return checks
+
+            }
+
+            function checkInterestRate(){
+
+            }
+            function checkLoanTerm(){
+                
+            }
+            function checkLoanPrinciple(){
+                
+            }
+
+            function getLoanPrincipal(){return document.getElementById("ploan").value}
+            function getInterestRate(){return document.getElementById("interestRate").value}
+            function getLoanTerm(){return Number(getLoanYears())*12 + Number(getLoanMonths())}
+            function getLoanYears(){return document.getElementById("loanyears").value}
+            function getLoanMonths(){return document.getElementById("loanmonths").value}
+
+
+
+
+
+
+
+        </script>
+        
+</root>
+</html>

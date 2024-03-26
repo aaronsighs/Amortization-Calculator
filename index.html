@@ -22,7 +22,7 @@
                     <label for="fname">Principal Loan:</label> 
                 </td>
                 <td class="ir2">
-                    <input type="number" id="ploan" name="ploan" min="0" placeholder="$"  >
+                    <input type="number" id="ploan" name="ploan" min="0" placeholder="$" value="5000"  >
                     <br><br>
                     <div class="hidden">$</div>
                 </td>
@@ -32,7 +32,7 @@
                     <label for="loanterm">Term of Loan:</label>
                 </td>
                 <td class="ir">
-                    <input type="number" id="loanyears" name="loanyears" placeholder="Year(s)" min="0" oninput="this.value =  this.value=='0'  ? 0:Math.abs(this.value) || ''  "><br><br>
+                    <input type="number" id="loanyears" name="loanyears" placeholder="Year(s)"  value=2 min="0" oninput="this.value =  this.value=='0'  ? 0:Math.abs(this.value) || ''  "><br><br>
                     <div class="hidden">Y</div>
                 </td>
                 <td class="ir">
@@ -47,7 +47,7 @@
                 </td>
                 <td class="ir">
                     
-                    <input type="number" id="interestRate" name="interestRate" placeholder="%" min="0" >
+                    <input type="number" id="interestRate" name="interestRate" placeholder="%"  value=10 min="0" >
                     <br><br>
                     <div class="hidden">%</div>
                 </td>
@@ -135,6 +135,7 @@
 
 
 </body>
+
 <root>
         <!-- External JavaScript -->
         <script src="script.js"></script>
